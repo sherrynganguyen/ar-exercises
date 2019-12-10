@@ -7,6 +7,10 @@ puts "Exercise 4"
 puts "----------"
 
 # Your code goes here ...
+
+# Store.create {name = "Surrey", annual_revenue = 224000, mens_apparel = false, womens_apparel = true}
+# Store.create {name = "Whistler", annual_revenue = 1900000, mens_apparel = true, womens_apparel = false}
+# Store.create {name = "Yaletown", annual_revenue = 430000, mens_apparel = true, womens_apparel = true}
 Store.create do |store|
   store.name = "Surrey"
   store.annual_revenue = 224000
@@ -31,5 +35,5 @@ end
 @men_stores = Store.where(womens_apparel: false)
 @men_stores.each { |store| puts store.name, store.annual_revenue}
 
-@women_stores = Store.where(mens_apparel: false && annual_revenue < 1000000)
+@women_stores = Store.where("womens_apparel = true AND annual_revenue < 1000000")
 @women_stores.each { |store| puts store.name, store.annual_revenue}
