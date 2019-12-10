@@ -1,5 +1,6 @@
 class Store < ActiveRecord::Base
   has_many :employees
-  validates :first_name, :last_name => true
-  validates :hourly_rate => { :in => 40..20}
+  validates :name, length: { minimum: 3 }
+  validates :annual_revenue, numericality: {greater_than_or_equal_to: 0 }
+  # validates :
 end
