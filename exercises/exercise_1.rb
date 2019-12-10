@@ -24,3 +24,5 @@ Store.create do |store|
   store.mens_apparel = true
   store.womens_apparel = false
 end
+
+puts Store.count
